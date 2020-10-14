@@ -22,7 +22,7 @@ namespace superpixel {
             //Perturb cluster center to the lowest gradient in an n x n neighborhood
             cv::Point bestPoint = getLocalMinimum(labSpaceInput, x * S, y * S, n);
             PixelFeature temp;
-            
+
             temp.labValue[0] = static_cast<double>(labSpaceInput.at<cv::Vec3b>(bestPoint.y, bestPoint.x)[0]);
             temp.labValue[1] = static_cast<double>(labSpaceInput.at<cv::Vec3b>(bestPoint.y, bestPoint.x)[1]);
             temp.labValue[2] = static_cast<double>(labSpaceInput.at<cv::Vec3b>(bestPoint.y, bestPoint.x)[2]);
@@ -253,6 +253,11 @@ namespace superpixel {
     cv::Point SLIC::getLocalMinimum(cv::Mat input, const int x, const int y, const int n)
     {
         auto lambdaGrad = [](cv::Mat input, int x, int y) {
+
+            // this if stops x and y , when they cross the image size
+            if ((x + 1 > input.cols - 1) || (y + 1 > input.rows - 1))
+                return 0;
+
             cv::Vec3b xDiff = input.at<cv::Vec3b>(y, x + 1) - input.at<cv::Vec3b>(y, x - 1);
             cv::Vec3b yDiff = input.at<cv::Vec3b>(y + 1, x) - input.at<cv::Vec3b>(y - 1, x);
             int xSum = 0;
