@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    std::cout << "the image size "<< inputMatrix.size() << std::endl;
+    std::cout << "the image size "<< inputMatrix.size() << ", channels " << inputMatrix.dims << std::endl;
 
     const int numberOfSupperpixels = 400;
     const int compactness = 20;
