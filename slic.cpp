@@ -253,7 +253,7 @@ namespace superpixel {
     cv::Point SLIC::getLocalMinimum(cv::Mat input, const int x, const int y, const int n)
     {
         auto lambdaGrad = [](cv::Mat input, int x, int y) {
-
+            
             // this if stops x and y , when they cross the image size
             if ((x + 1 > input.cols - 1) || (y + 1 > input.rows - 1))
                 return 0;

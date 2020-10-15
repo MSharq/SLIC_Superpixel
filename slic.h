@@ -6,7 +6,7 @@
 #include <iostream>
 
 // REMEMBER TO FILL UP THE RIGHT PATHS
-static std::string inputFile = "C:\\Users\\sharique\\Desktop\\Test-Bild-Cork\\rsz_rsz_002.bmp";
+static std::string inputFile = "C:\\Users\\sharique\\Desktop\\Test-Bild-Cork\\rsz_002.jpg";
 static std::string outputFile_mean = "C:\\Users\\sharique\\Desktop\\Test-Bild-Cork\\SLIC_mean.png";
 static std::string outputFile_redLine = "C:\\Users\\sharique\\Desktop\\Test-Bild-Cork\\SLIC_redLine.png";
 
